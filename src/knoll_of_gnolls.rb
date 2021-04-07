@@ -14,35 +14,36 @@ require_relative './controllers/run_game.rb'
 require_relative './models/Player.rb'
 require_relative './models/Game.rb'
 require_relative './controllers/dice_roll.rb'
+require_relative './models/Monster.rb'
 
 
 # -----Methods-----
 
 
 #Dice Rolls
-def has_monster?
-    if dice_roll(2, 6) >= 8
-        true
-    else
-        false
-    end
-end
+# def has_monster?
+#     if dice_roll(2, 6) >= 8
+#         true
+#     else
+#         false
+#     end
+# end
 
-def monster_attack?
-    if dice_roll(2,6) >= 9
-        true
-    else
-        false 
-    end
-end
+# def monster_attack?
+#     if dice_roll(2,6) >= 9
+#         true
+#     else
+#         false 
+#     end
+# end
 
-def defeat_monster?
-    if dice_roll(2,6) >= 3
-        true
-    else
-        false 
-    end
-end
+# def defeat_monster?
+#     if dice_roll(2,6) >= 3
+#         true
+#     else
+#         false 
+#     end
+# end
 
 # def has_person?
 #     if dice_roll(2,6) >= 6
@@ -78,7 +79,7 @@ puts " "
 puts "What is your name, adventurer?"
 name = gets.chomp
 # player = Player.new(name, 8)
-@player = Player.new(name, 8)
+# @player = Player.new(name, 8)
 @game = Game.new(name)
 
 puts " "
@@ -163,7 +164,7 @@ puts " "
 run_game
 
 # if @hp > 0 
-if @player.hp > 0
+if @game.hp > 0
     puts "You lived."
     puts "You explored #{@game.number_of_rooms_explored} rooms"
     puts "You rescued #{@game.person_count} citizens"

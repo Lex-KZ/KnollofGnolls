@@ -1,13 +1,14 @@
 require_relative '../models/Player.rb'
 require_relative '../models/Game.rb'
 require_relative './staging.rb'
+require_relative '../models/Monster.rb'
 
 
 
 def run_game
     has_person = create_room[:person]
 # --------Game Loop--------
-    while @player.hp > 0 && @game.person_count < 7
+    while @game.hp > 0 && @game.person_count < 7
     # Game Code
         actions = ["m - move, s - search"]
         puts "Room #{@game.number_of_rooms_explored}"
@@ -25,18 +26,16 @@ def run_game
 
     # Monster attack
         if @game.monster and monster_attack?
-            @player.hp = @player.hp - 1
+            @game.hp = @game.hp - 1
             puts "The gnoll swings at you with its claws, scratching you deep across the chest. You take 1 point of damage."
         end
     # Player commands
-        # has_person = create_room[:person]
         if player_action == "m"
             @game.current_room = create_room[:message]
             @game.number_of_rooms_explored += 1
             @game.monster = has_monster?
             has_person = create_room[:person]
         elsif player_action == "s"
-            # has_person = create_room[:person]
             if has_person
                 puts "You found a missing person! You gain 2xp!" 
                 @game.person_count += 1
@@ -47,11 +46,8 @@ def run_game
             end
 
     # Condition => Searching triggers Monsters
-            # puts "********#{@game.monster}**********"
             if not @game.monster
                 @game.monster = has_monster?
-                # puts "jghcijedvhievhirfvbfr"
-                # puts @game.monster
             end
         elsif player_action == "f"
             if defeat_monster?
