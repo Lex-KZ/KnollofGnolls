@@ -93,7 +93,7 @@ puts " "
 ####################################################################
 puts "What is your name, adventurer?"
 name = gets.chomp
-Player.new(name, 8)
+player = Player.new(name, 8)
 
 puts " "
 puts "Hello, #{name}"
@@ -176,7 +176,7 @@ puts " "
 
 run_game
 
-if hp > 0 
+if @hp > 0 
     puts "You lived."
     puts "You explored #{number_of_rooms_explored} rooms"
     puts "You rescued #{person_count} citizens"
