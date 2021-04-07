@@ -13,7 +13,8 @@ def run_game
     
 
 # --------Game Loop--------
-    while player.instance_variable_get(@hp) > 0 && person_count < 7
+    # while player.instance_variable_get(@hp) > 0 && person_count < 7
+    while @player.hp > 0 && person_count < 7
     # Game Code
         actions = ["m - move, s - search"]
         puts "Room #{number_of_rooms_explored}"
@@ -30,7 +31,7 @@ def run_game
 
     # Monster attack
         if monster and monster_attack?
-            hp = hp - 1
+            @player.hp = @player.hp - 1
             puts "The gnoll swings at you with its claws, scratching you deep across the chest. You take 1 point of damage."
         end
     # Player commands
