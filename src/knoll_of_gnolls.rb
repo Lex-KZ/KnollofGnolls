@@ -12,19 +12,12 @@
 
 require_relative './controllers/run_game.rb'
 require_relative './models/Player.rb'
+require_relative './models/Game.rb'
 require_relative './controllers/dice_roll.rb'
 
 
 # -----Methods-----
 
-#Staging
-def create_room
-    "You are in a cave. There is a tunnel on the other side of the cave."
-end
-
-def body_part
-    ["heart", "eye", "stomach", "neck", "leg", "shoulder", "chest"].sample
-end
 
 #Dice Rolls
 def has_monster?
@@ -51,13 +44,13 @@ def defeat_monster?
     end
 end
 
-def has_person?
-    if dice_roll(2,6) >= 6
-        true
-    else
-        false 
-    end
-end
+# def has_person?
+#     if dice_roll(2,6) >= 6
+#         true
+#     else
+#         false 
+#     end
+# end
 
 
 
@@ -86,9 +79,10 @@ puts "What is your name, adventurer?"
 name = gets.chomp
 # player = Player.new(name, 8)
 @player = Player.new(name, 8)
+@game = Game.new(name)
 
 puts " "
-puts "Hello, #{name}"
+puts "Hello, #{@game.name}"
 
 
 while true 
@@ -171,11 +165,11 @@ run_game
 # if @hp > 0 
 if @player.hp > 0
     puts "You lived."
-    puts "You explored #{number_of_rooms_explored} rooms"
-    puts "You rescued #{person_count} citizens"
-    puts "you gained #{xp}xp"
+    puts "You explored #{@game.number_of_rooms_explored} rooms"
+    puts "You rescued #{@game.person_count} citizens"
+    puts "you gained #{@game.xp}xp"
 else 
     puts "Game Over"
-    puts "You explored #{number_of_rooms_explored} rooms before you died."
-    puts "you gained #{xp}xp"
+    puts "You explored #{@game.number_of_rooms_explored} rooms before you died."
+    puts "you gained #{@game.xp}xp"
 end 
