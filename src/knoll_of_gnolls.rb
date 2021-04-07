@@ -12,7 +12,7 @@
 
 require_relative './controllers/run_game.rb'
 require_relative './models/Player.rb'
-
+require_relative './controllers/dice_roll.rb'
 
 
 # -----Methods-----
@@ -24,15 +24,6 @@ end
 
 def body_part
     ["heart", "eye", "stomach", "neck", "leg", "shoulder", "chest"].sample
-end
-
-#Random Number Generator
-def dice_roll(number_of_dice, size_of_dice)
-    total = 0
-    1.upto(number_of_dice) do
-        total = total + rand(size_of_dice) + 1
-    end
-    return total
 end
 
 #Dice Rolls
@@ -93,7 +84,8 @@ puts " "
 ####################################################################
 puts "What is your name, adventurer?"
 name = gets.chomp
-player = Player.new(name, 8)
+# player = Player.new(name, 8)
+@player = Player.new(name, 8)
 
 puts " "
 puts "Hello, #{name}"
@@ -176,7 +168,8 @@ puts " "
 
 run_game
 
-if @hp > 0 
+# if @hp > 0 
+if @player.hp > 0
     puts "You lived."
     puts "You explored #{number_of_rooms_explored} rooms"
     puts "You rescued #{person_count} citizens"
