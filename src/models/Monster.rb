@@ -4,7 +4,7 @@ require_relative '../controllers/dice_roll.rb'
 #-----Dice Rolls-----
 #Is there a monster?
 def has_monster?
-    if dice_roll(2, 6) >= 8
+    if dice_roll(2, 6) >= 10
         true
     else
         false

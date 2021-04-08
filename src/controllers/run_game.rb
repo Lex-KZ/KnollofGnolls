@@ -1,7 +1,7 @@
-require_relative '../models/Player.rb'
 require_relative '../models/Game.rb'
 require_relative './staging.rb'
 require_relative '../models/Monster.rb'
+require 'colorize'
 
 
 
@@ -10,14 +10,13 @@ def run_game
 # --------Game Loop--------
     while @game.hp > 0 && @game.person_count < 7
     # Game Code
-        actions = ["m - move, s - search"]
+        actions = ["m - move, s - search, i - inventory"]
         puts "Room #{@game.number_of_rooms_explored}"
         puts @game.current_room
 
     # Monster encounter
-        puts @game.monster
         if @game.monster
-            puts "You see a gnoll, he doesn't see you."
+            puts "You see a gnoll, he doesn't see you.".colorize(:red)
             actions << "f - fight"
         end
 
@@ -27,8 +26,9 @@ def run_game
     # Monster attack
         if @game.monster and monster_attack?
             @game.hp = @game.hp - 1
-            puts "The gnoll swings at you with its claws, scratching you deep across the chest. You take 1 point of damage."
+            puts "The gnoll swings at you with its claws, scratching you deep across the chest. You take 1 point of damage.".colorize(:red)
         end
+
     # Player commands
         if player_action == "m"
             @game.current_room = create_room[:message]
@@ -36,11 +36,19 @@ def run_game
             @game.monster = has_monster?
             has_person = create_room[:person]
         elsif player_action == "s"
-            if has_person
-                puts "You found a missing person! You gain 2xp!" 
+            current_treasure = treasure
+            if has_person && has_treasure? == false
+                puts "You found a missing person! You gain 2xp!".colorize(:green)
                 @game.person_count += 1
                 @game.xp += 2
                 has_person = false
+            elsif has_person && has_treasure?
+                puts "You found a missing person! You gain 2xp!".colorize(:green)
+                puts "You found a #{treasure}!".colorize(:green)
+                @game.person_count += 1
+                @game.xp += 2
+                has_person = false
+                @game.inventory_row << [current_treasure, 1]
             else
                 puts "You search the room. There are no missing people here."
             end
@@ -49,6 +57,8 @@ def run_game
             if not @game.monster
                 @game.monster = has_monster?
             end
+        elsif player_action == "i"
+            @game.view_inventory
         elsif player_action == "f"
             if defeat_monster?
                 @game.monster = false

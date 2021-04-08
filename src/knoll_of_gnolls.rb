@@ -11,7 +11,6 @@
 ###################################################################
 
 require_relative './controllers/run_game.rb'
-require_relative './models/Player.rb'
 require_relative './models/Game.rb'
 require_relative './controllers/dice_roll.rb'
 require_relative './models/Monster.rb'
@@ -172,5 +171,5 @@ if @game.hp > 0
 else 
     puts "Game Over"
     puts "You explored #{@game.number_of_rooms_explored} rooms before you died."
-    puts "you gained #{@game.xp}xp"
+    puts "You gained #{@game.xp}xp"
 end 
