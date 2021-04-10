@@ -68,6 +68,7 @@ def run_game
                 @game.monster = false
                 puts "You charge the beast, piercing its #{body_part}. It falls prone. you gain 3xp!"
                 @game.xp += 3
+            
             else 
                 puts "You charge the beast, but it dodges to the side. You missed."  
             end

@@ -18,9 +18,8 @@ require_relative './models/Game.rb'
 require_relative './controllers/dice_roll.rb'
 require_relative './models/Monster.rb'
 
-play = true 
 
-while play == true
+while true
     # -----Introduction-----
 
     puts "The Knoll of Gnolls"
@@ -132,10 +131,11 @@ while play == true
 
     # if @hp > 0 
     if @game.hp > 0
-        puts "You lived."
+        puts "You lived!"
         puts "You explored #{@game.number_of_rooms_explored} rooms"
         puts "You rescued #{@game.person_count} citizens"
         puts "you gained #{@game.xp}xp"
+        @game.view_inventory
     else 
         puts "Game Over"
         puts "You explored #{@game.number_of_rooms_explored} rooms before you died."
@@ -143,10 +143,14 @@ while play == true
     end 
 
     prompt = TTY::Prompt.new
-    prompt.select("Would you like to play again?", %w(Yes No), convert: :boolean )
-    if prompt == true
-        play = true
-    else 
-        play = false
+    choices = [
+        {name: "Yes", value: true},
+        {name: "No", value: false}
+    ]
+    selection = prompt.select("Would you like to play again?", choice )
+    if selection == false
+        puts " "
+        puts "Thank you for playing!"
+        break
     end
-end
+end 

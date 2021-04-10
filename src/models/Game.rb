@@ -1,3 +1,4 @@
+require 'yaml'
 require 'terminal-table'
 require_relative '../controllers/staging.rb'
 
