@@ -11,7 +11,7 @@ def run_game
     while @game.hp > 0 && @game.person_count < 7
     # Game Code
         actions = ["m - move, s - search, i - inventory"]
-        puts "Room #{@game.number_of_rooms_explored}"
+        puts "Room #{@game.number_of_rooms_explored}".colorize(:light_blue)
         puts @game.current_room
 
     # Monster encounter
@@ -44,10 +44,14 @@ def run_game
                 has_person = false
             elsif has_person && has_treasure?
                 puts "You found a missing person! You gain 2xp!".colorize(:green)
-                puts "You found a #{treasure}!".colorize(:green)
+                puts "You found a #{current_treasure}!".colorize(:green)
                 @game.person_count += 1
                 @game.xp += 2
                 has_person = false
+                @game.inventory_row << [current_treasure, 1]
+            elsif has_person == false && has_treasure?
+                puts "There are no missing people here."
+                puts "You found a #{treasure}!".colorize(:green)
                 @game.inventory_row << [current_treasure, 1]
             else
                 puts "You search the room. There are no missing people here."
