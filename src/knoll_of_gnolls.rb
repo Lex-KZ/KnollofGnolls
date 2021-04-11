@@ -1,14 +1,6 @@
-# The Knoll of Gnolls
-####################################################################
-###### 1) check if player is alive
-###### 2) let the player leave the room
-###### 3) check to see if a monster is in the room
-###### 4) allow searching for treasure (money and people)
-###### 5) different types of rooms
-###### 6) RNG
-###### 7) did we find treasure?
-###### 8) monsters deal damage - health zero = game over
-###################################################################
+##!/usr/bin/env ruby 
+
+
 #-----Gems-----
 require "tty-prompt"
 
@@ -25,28 +17,24 @@ while true
     puts "The Knoll of Gnolls"
     puts " "
 
-    # sleep 1
+    sleep 1
 
     puts "Hello adventurer!"
     puts " "
 
-    # sleep 1
+    sleep 1
 
     puts "Welcome to the world of Otira."
     puts " "
 
-    # sleep 1
+    sleep 1
 
     ####################################################################
     while true
         puts "What is your name, adventurer?"
         name = gets.chomp
         name.empty? ? (puts "You must enter a name before continuing") : break
-        # @game = Game.new(name)
     end
-
-    # puts "What is your name, adventurer?"
-    # name = gets.chomp
 
     @game = Game.new(name)
 
@@ -77,59 +65,59 @@ while true
     puts "sun was beating down on the small town of Ruesin."
     puts " "
 
-    # sleep 3
+    sleep 3
 
     puts "You arrived in town that morning, eager for work"
     puts "and gold."
     puts " "
 
-    # sleep 3
+    sleep 3
 
     puts "You heard that some nights prior a pack of gnolls,"
     puts "hyena-headed humanoids, had raided the town and" 
     puts "had taken many citizens."
     puts " "
 
-    # sleep 4
+    sleep 4
 
     puts "You've never encountered gnolls before, but you"
     puts "know they are very aggressive, especially when"
     puts "they're hungry."
     puts " "
 
-    # sleep 4
+    sleep 4
 
     puts "The town offered 400 gold pieces to anyone brave"
     puts "enough to venture into the Blazing Jungles that"
     puts "surround the town and retrieve the missing."
     puts " "
 
-    # sleep 5
+    sleep 5
 
     puts "You, being certain of your skills and knowledge of" 
     puts "nature, had taken up the contract."
     puts " "
 
-    # sleep 3
+    sleep 3
 
     puts "The distant caw of a jungle bird brought you back to"
     puts "the here and now."
     puts " "
 
-    # sleep 3
+    sleep 3
 
     puts "You make your way through the jungle, following the trail"
     puts "of destruction, until you arrive at a hill, a knoll if you will."
     puts " "
 
-    # sleep 3
+    sleep 3
 
     puts "You make your way inside"
     puts " "
 
     run_game
 
-    # if @hp > 0 
+   #Check win condition 
     if @game.hp > 0
         puts "You lived!"
         puts "You explored #{@game.number_of_rooms_explored} rooms"
@@ -142,6 +130,8 @@ while true
         puts "You gained #{@game.xp}xp"
     end 
 
+
+    #Play again? 
     prompt = TTY::Prompt.new
     choices = [
         {name: "Yes", value: true},
