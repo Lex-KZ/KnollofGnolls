@@ -1,0 +1,101 @@
+commit ec5612094fa5ad48496ecb3008e6092feaecd73b
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Sun Apr 11 16:55:20 2021 +1000
+
+    Add extra documentation.
+
+commit 1ccc9a3d2451fb2146c8621d0544e2471e8d24a6
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Sun Apr 11 08:59:04 2021 +1000
+
+    Add re-play option
+
+commit d1061eb6556d67bed3831a96288be3e04e2b0e3b
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Sun Apr 11 07:59:18 2021 +1000
+
+    Modified game test.
+
+commit b246c1e35069391fd7423ef8f129cee5d9d1140d
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Sun Apr 11 07:58:26 2021 +1000
+
+    Add 2 tests
+
+commit f29582ecdff6226fdf3f60ea750843061cd9825e
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Sat Apr 10 19:46:03 2021 +1000
+
+    Add Corlise, tty-prompt and table gems for aesthetics.
+
+commit 4d50fc2e3d47d8582530004e78ce3bab0861e399
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Thu Apr 8 18:08:39 2021 +1000
+
+    Add gems and Gemfile. Add Colorize & Terminal Table. Create Inventory
+
+commit 76f5da977a26ef3dc9a4d13f082f398368c8e933
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Thu Apr 8 10:54:51 2021 +1000
+
+    Move Monster methods to seperate Monster file. Room entry functions moved to seperate staging file.
+
+commit 44cc040394a7e7dca4e5fdf3075a64e27838d079
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Thu Apr 8 09:15:56 2021 +1000
+
+    Move Player class funtion to Game class. Remove Player.rb
+
+commit abd82de571093204b6823a6aa6f08e6fdcea770f
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Wed Apr 7 17:20:53 2021 +1000
+
+    Move variables out of run_game and into the Game class so that it initiates on every new game.
+
+commit a05ac2020026a8526ecbfe996e90697af6240c12
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Wed Apr 7 14:35:00 2021 +1000
+
+    Just in case I mess up creating a game class
+
+commit d131e5087f40e30847caa18b1799b87263766067
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Wed Apr 7 14:26:14 2021 +1000
+
+    Move RNG to it's own file.
+
+commit 75d3894dc9f4270b7791d2efb7eed5a22962e9fc
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Wed Apr 7 14:09:16 2021 +1000
+
+    Just in case
+
+commit e9210c98d07fe69a15b153029ed9cc74120d97a0
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Wed Apr 7 08:43:44 2021 +1000
+
+    Created Player class, moved name and hp variables into player class.
+
+commit 34d0a0953ba1409ad5e2df39a7acf194fc84e06b
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Tue Apr 6 21:03:50 2021 +1000
+
+    Move Game Loop to seperate file.
+
+commit 74611b945db7990ed90b84b722c62bdee36e2872
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Tue Apr 6 20:15:04 2021 +1000
+
+    Add basic structure. Program in single file. No ruby classes or playable classes.
+
+commit a45b51a3a5ae2cce49397385d53874146ed30340
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Tue Apr 6 10:47:32 2021 +1000
+
+    Initial commit after first push
+
+commit c1449ee214bdc1034b34d7e2c816da5102428bca
+Author: Lex-KZ <azaskalkina@hotmail.com>
+Date:   Mon Apr 5 14:49:43 2021 +1000
+
+    Initial commit
